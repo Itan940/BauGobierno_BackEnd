@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Apm = require("./models/apm");
 
 const app = express();
 const uri =
@@ -16,3 +17,7 @@ app.use(express.json());
 const apmRouter = require("./routes/apm");
 app.use("/apm", apmRouter);
 app.listen(3000, () => console.log("server started"));
+
+const apm = new Apm([{ name: "eeea", email: "aaaa", password: "eeeeew" }]);
+
+apm.save();
